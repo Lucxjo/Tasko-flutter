@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:tasko/styles/text_styles.dart';
 
 class HomeView extends StatefulWidget {
   @override
@@ -16,7 +17,7 @@ class _HomeViewState extends State<HomeView> {
               TabBarView(
                 children: [
                   new Container(
-                    color: Colors.yellow,
+                    color: Colors.grey,
                   ),
                   new Container(color: Colors.orange,),
                   new Container(
@@ -25,8 +26,25 @@ class _HomeViewState extends State<HomeView> {
                 ],
               ),
               Container(
-                height: 100,
-                color: Colors.white,
+                height: 150,
+                padding: EdgeInsets.only(left: 50.0),
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.only(
+                    bottomLeft: Radius.circular(50),
+                    bottomRight: Radius.circular(50),
+                  ),
+                  color: Colors.white,
+                ),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Text(
+                      'Intray',
+                      style: TextStyles.intrayTitle,
+                    ),
+                    Container()
+                  ],
+                )
               )
             ]
           ),
