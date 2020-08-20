@@ -8,7 +8,8 @@ class App extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'Tasko',
       theme: ThemeData(
-        primaryColor: Colors.blue
+        primaryColorDark: Colors.grey[100],
+        primaryColor: Colors.white
       ),
       home: SafeArea(child: HomeView()),
     );
