@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:tasko/styles/colours.dart';
 import 'package:tasko/styles/text_styles.dart';
 
 class HomeView extends StatefulWidget {
@@ -17,7 +18,7 @@ class _HomeViewState extends State<HomeView> {
               TabBarView(
                 children: [
                   new Container(
-                    color: Colors.grey,
+                    color: Colour.darkGrey,
                   ),
                   new Container(color: Colors.orange,),
                   new Container(
@@ -45,6 +46,16 @@ class _HomeViewState extends State<HomeView> {
                     Container()
                   ],
                 )
+              ),
+              Container(
+                margin: EdgeInsets.only(
+                  top: 124,
+                  left: (MediaQuery.of(context).size.width / 2) - 28,
+                ),
+                child: FloatingActionButton(
+                  onPressed: () {},
+                  child: Icon(Icons.add, size: 50,),
+                ),
               )
             ]
           ),
@@ -62,11 +73,11 @@ class _HomeViewState extends State<HomeView> {
                   icon: new Icon(Icons.perm_identity),
                 ),
               ],
-              labelColor: Colors.black,
-              unselectedLabelColor: Colors.grey[800],
+              labelColor: Colour.darkGrey,
+              unselectedLabelColor: Colors.grey[700],
               indicatorSize: TabBarIndicatorSize.label,
               indicatorPadding: EdgeInsets.all(5.0),
-              indicatorColor: Colors.black,
+              indicatorColor: Colors.transparent,
             ),
           ),
         ),

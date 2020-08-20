@@ -5,7 +5,7 @@ class TextStyles {
   static const TextStyle intrayTitle = TextStyle(
     fontFamily: 'Avenir',
     fontWeight: FontWeight.bold,
-    color: Colour.darkGreyColour,
+    color: Colour.darkGrey,
     fontSize: 40.0,
   );
 }
