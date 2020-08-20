@@ -11,7 +11,7 @@ class App extends StatelessWidget {
         primaryColorDark: Colors.grey[100],
         primaryColor: Colors.white
       ),
-      home: SafeArea(child: HomeView()),
+      home: HomeView(),
     );
   }
 }

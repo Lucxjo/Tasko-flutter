@@ -9,7 +9,7 @@ class _HomeViewState extends State<HomeView> {
   @override
   Widget build(BuildContext context) {
     return DefaultTabController(
-        length: 4,
+        length: 3,
         child: new Scaffold(
           body: Stack(
             children: <Widget> [
@@ -22,9 +22,6 @@ class _HomeViewState extends State<HomeView> {
                   new Container(
                     color: Colors.lightGreen,
                   ),
-                  new Container(
-                    color: Colors.red,
-                  ),
                 ],
               ),
               Container(
@@ -34,6 +31,7 @@ class _HomeViewState extends State<HomeView> {
             ]
           ),
           appBar: AppBar(
+            elevation: 0,
             title: TabBar(
               tabs: [
                 Tab(
@@ -45,7 +43,6 @@ class _HomeViewState extends State<HomeView> {
                 Tab(
                   icon: new Icon(Icons.perm_identity),
                 ),
-                Tab(icon: new Icon(Icons.settings),)
               ],
               labelColor: Colors.black,
               unselectedLabelColor: Colors.grey[800],
