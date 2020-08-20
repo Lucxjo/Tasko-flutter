@@ -8,13 +8,44 @@ class HomeView extends StatefulWidget {
 class _HomeViewState extends State<HomeView> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text('Tasko'),
-      ),
-      body: Center(
-        child: Text('Hello World!'),
-      ),
+    return DefaultTabController(
+        length: 4,
+        child: new Scaffold(
+          body: TabBarView(
+            children: [
+              new Container(
+                color: Colors.yellow,
+              ),
+              new Container(color: Colors.orange,),
+              new Container(
+                color: Colors.lightGreen,
+              ),
+              new Container(
+                color: Colors.red,
+              ),
+            ],
+          ),
+          appBar: TabBar(
+            tabs: [
+              Tab(
+                icon: new Icon(Icons.home),
+              ),
+              Tab(
+                icon: new Icon(Icons.rss_feed),
+              ),
+              Tab(
+                icon: new Icon(Icons.perm_identity),
+              ),
+              Tab(icon: new Icon(Icons.settings),)
+            ],
+            labelColor: Colors.black,
+            unselectedLabelColor: Colors.grey[800],
+            indicatorSize: TabBarIndicatorSize.label,
+            indicatorPadding: EdgeInsets.all(5.0),
+            indicatorColor: Colors.black,
+          ),
+            backgroundColor: Colors.white,
+        ),
     );
   }
 }
