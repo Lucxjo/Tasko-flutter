@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:tasko/styles/colours.dart';
 import 'package:tasko/styles/text_styles.dart';
+import 'package:tasko/views/intray/intray_view.dart';
 
 class HomeView extends StatefulWidget {
   @override
@@ -17,9 +18,7 @@ class _HomeViewState extends State<HomeView> {
             children: <Widget> [
               TabBarView(
                 children: [
-                  new Container(
-                    color: Colour.darkGrey,
-                  ),
+                  IntrayView(),
                   new Container(color: Colors.orange,),
                   new Container(
                     color: Colors.lightGreen,
