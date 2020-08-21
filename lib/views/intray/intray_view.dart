@@ -11,6 +11,30 @@ class _IntrayViewState extends State<IntrayView> {
   Widget build(BuildContext context) {
     return Container(
       color: Colour.darkGrey,
+      child: ListView(
+        padding: EdgeInsets.only(top: 180.0),
+        children: getList(),
+      ),
     );
   }
+}
+
+List<Widget> getList() {
+  return [
+    Container(
+      margin: EdgeInsets.all(8),
+      height: 100,
+      color: Colour.red,
+    ),
+    Container(
+      margin: EdgeInsets.all(8),
+      height: 100,
+      color: Colour.red,
+    ),
+    Container(
+      margin: EdgeInsets.all(8),
+      height: 100,
+      color: Colour.red,
+    )
+  ];
 }
