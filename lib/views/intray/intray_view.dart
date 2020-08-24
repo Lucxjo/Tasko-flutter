@@ -44,7 +44,7 @@ class _IntrayViewState extends State<IntrayView> {
 
   List<Task> getList() {
     for (int i = 0; i < 10; i++) {
-      todoList.add(new Task(Uuid().v4(), "Hi", false));
+      todoList.add(new Task(Uuid().v4(), "Hi $i", false));
     }
     return todoList;
   }
