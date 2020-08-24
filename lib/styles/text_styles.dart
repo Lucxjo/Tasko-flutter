@@ -6,6 +6,12 @@ class TextStyles {
     fontFamily: 'Avenir',
     fontWeight: FontWeight.bold,
     color: Colour.darkGrey,
-    fontSize: 40.0,
+    fontSize: 50.0,
+  );
+  static const TextStyle todoCardTitle = TextStyle(
+    fontFamily: 'Avenir',
+    fontWeight: FontWeight.bold,
+    color: Colour.darkGrey,
+    fontSize: 30.0,
   );
 }
