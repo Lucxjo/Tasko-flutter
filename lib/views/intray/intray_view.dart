@@ -11,29 +11,40 @@ class IntrayView extends StatefulWidget {
 }
 
 class _IntrayViewState extends State<IntrayView> {
+
+  List<IntrayToDo> todoList = [];
+
+  Widget _buildListTile(BuildContext context, IntrayToDo item) {
+    return ListTile(
+      key: Key(Uuid().v4()),
+      title: item,
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
+    todoList = getList();
     return Container(
       color: Colour.darkGrey,
       child: ReorderableListView(
         padding: EdgeInsets.only(top: 180.0),
-        children: getList(),
-        onReorder: (int oldIndex, int newIndex) {
+        children: todoList.map((IntrayToDo item) => _buildListTile(context, item)).toList(),
+        onReorder: (oldIndex, newIndex) {
           setState(() {
-            if (newIndex > oldIndex) newIndex -=1;
-            final Container item = getList().removeAt(oldIndex);
-            getList().insert(newIndex, item);
+            IntrayToDo item = todoList[oldIndex];
+            todoList.remove(item);
+            todoList.insert(newIndex, item);
           });
         },
       ),
     );
   }
+
+  List<Widget> getList() {
+  for (int i = 0; i < 10; i++) {
+    todoList.add(new IntrayToDo(title: "Hello", key: Key(Uuid().v4()),));
+  }
+  return todoList;
+}
 }
 
-List<Widget> getList() {
-  List<IntrayToDo> list = [];
-  for (int i = 0; i < 10; i++) {
-    list.add(new IntrayToDo(title: "Hello", key: Key(Uuid().v4()),));
-  }
-  return list;
-}
