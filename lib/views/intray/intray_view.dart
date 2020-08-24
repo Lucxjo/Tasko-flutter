@@ -26,7 +26,7 @@ class _IntrayViewState extends State<IntrayView> {
     return Container(
       color: Colour.darkGrey,
       child: Theme(
-        data: ThemeData(canvasColor: Colour.darkGrey),
+        data: ThemeData(canvasColor: Colors.transparent),
         child: ReorderableListView(
           padding: EdgeInsets.only(top: 180.0),
           children: todoList.map((Task item) => _buildListTile(context, item)).toList(),
