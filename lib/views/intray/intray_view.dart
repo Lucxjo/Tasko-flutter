@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:tasko/models/task.dart';
 import 'package:tasko/styles/colours.dart';
 import 'package:tasko/components/intray_todo_widget.dart';
 import 'package:uuid/uuid.dart';
@@ -10,12 +11,12 @@ class IntrayView extends StatefulWidget {
 
 class _IntrayViewState extends State<IntrayView> {
 
-  List<IntrayToDo> todoList = [];
+  List<Task> todoList = [];
 
-  Widget _buildListTile(BuildContext context, IntrayToDo item) {
+  Widget _buildListTile(BuildContext context, Task item) {
     return ListTile(
       key: Key(Uuid().v4()),
-      title: item,
+      title: IntrayToDo(key: Key(item.id), title: item.title,),
     );
   }
 
@@ -26,11 +27,11 @@ class _IntrayViewState extends State<IntrayView> {
       color: Colour.darkGrey,
       child: ReorderableListView(
         padding: EdgeInsets.only(top: 180.0),
-        children: todoList.map((IntrayToDo item) => _buildListTile(context, item)).toList(),
+        children: todoList.map((Task item) => _buildListTile(context, item)).toList(),
         onReorder: (oldIndex, newIndex) {
           setState(() {
-            IntrayToDo item = todoList[oldIndex];
-            todoList.remove(item);
+            if (newIndex > oldIndex) newIndex--;
+            Task item = todoList.removeAt(oldIndex);
             todoList.insert(newIndex, item);
           });
         },
@@ -38,11 +39,11 @@ class _IntrayViewState extends State<IntrayView> {
     );
   }
 
-  List<Widget> getList() {
-  for (int i = 0; i < 10; i++) {
-    todoList.add(new IntrayToDo(title: "Hello", key: Key(Uuid().v4()),));
+  List<Task> getList() {
+    for (int i = 0; i < 10; i++) {
+      todoList.add(new Task(Uuid().v4(), "Hi", false));
+    }
+    return todoList;
   }
-  return todoList;
-}
 }
 
