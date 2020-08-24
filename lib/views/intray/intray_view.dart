@@ -25,16 +25,19 @@ class _IntrayViewState extends State<IntrayView> {
     todoList = getList();
     return Container(
       color: Colour.darkGrey,
-      child: ReorderableListView(
-        padding: EdgeInsets.only(top: 180.0),
-        children: todoList.map((Task item) => _buildListTile(context, item)).toList(),
-        onReorder: (oldIndex, newIndex) {
-          setState(() {
-            if (newIndex > oldIndex) newIndex--;
-            Task item = todoList.removeAt(oldIndex);
-            todoList.insert(newIndex, item);
-          });
-        },
+      child: Theme(
+        data: ThemeData(canvasColor: Colour.darkGrey),
+        child: ReorderableListView(
+          padding: EdgeInsets.only(top: 180.0),
+          children: todoList.map((Task item) => _buildListTile(context, item)).toList(),
+          onReorder: (oldIndex, newIndex) {
+            setState(() {
+              if (newIndex > oldIndex) newIndex--;
+              Task item = todoList.removeAt(oldIndex);
+              todoList.insert(newIndex, item);
+            });
+          },
+        ),
       ),
     );
   }
